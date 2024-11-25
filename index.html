@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles/index.css">
+  <title>Formulário de Planejamento de Disciplina</title>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Formulário de Planejamento de Disciplina</h1>
+    <form id="form">
+      <h2>1. Dados Gerais</h2>
+      <label for="curso">Curso:</label>
+      <input type="text" id="curso" name="curso" placeholder="Ex: Curso Técnico de Eventos" required>
+
+      <label for="disciplina">Disciplina:</label>
+      <input type="text" id="disciplina" name="disciplina" placeholder="Ex: Aspectos Socioculturais em Eventos" required>
+
+      <label for="semestre">Semestre:</label>
+      <input type="text" id="semestre" name="semestre" placeholder="Ex: 2024.2" required>
+
+      <label for="professor">Professor(a):</label>
+      <input type="text" id="professor" name="professor" placeholder="Ex: Carolina Castelo Branco" required>
+
+      <h2>2. Carga Horária</h2>
+      <label for="ch-total">Carga Horária Total:</label>
+      <input type="number" id="ch-total" name="ch-total" placeholder="Ex: 40" required>
+
+      <label for="ch-sincrona">Carga Horária Síncrona:</label>
+      <input type="number" id="ch-sincrona" name="ch-sincrona" placeholder="Ex: 8" required>
+
+      <label for="ch-assincrona">Carga Horária Assíncrona:</label>
+      <input type="number" id="ch-assincrona" name="ch-assincrona" placeholder="Ex: 28" required>
+
+      <h2>3. Unidades</h2>
+      <div id="units-container">
+        <div class="unit" id="unit-1">
+          <h3>Unidade 1</h3>
+          <label for="unidade-1">Título:</label>
+          <input type="text" id="unidade-1" name="unidade-1" placeholder="Título da Unidade 1" required>
+
+          <label for="ch-unidade-1">Carga Horária:</label>
+          <input type="number" id="ch-unidade-1" name="ch-unidade-1" placeholder="Carga Horária da Unidade 1" required>
+
+          <label for="periodo-unidade-1">Período:</label>
+          <input type="text" id="periodo-unidade-1" name="periodo-unidade-1" placeholder="Ex: 01/09/2024 a 07/09/2024" required>
+
+          <div class="task-container" id="task-container-1">
+            <h4>Tarefas:</h4>
+            <div id="tasks-list-1"></div>
+            <button type="button" onclick="addTaskForm('1')">Adicionar Tarefa</button>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" onclick="addNewUnit()">Adicionar Nova Unidade</button>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="hide">
+    <div class="modal-content">
+      <h2>Detalhes da Tarefa</h2>
+      <p id="modal-task-details">Conteúdo da tarefa aqui...</p>
+      <button onclick="closeModal()">Fechar</button>
+    </div>
+  </div>
+
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
