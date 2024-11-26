@@ -131,7 +131,10 @@ function showTasks(unitId) {
   } else {
     console.error("Modal não encontrado no DOM.");
   }
+  console.log(showTasks);
 }
+
+
 
 // Fechar o modal
 function closeModal() {
@@ -142,15 +145,24 @@ function closeModal() {
 }
  }
 
-
+taskDetails = [
+  {title:  'oi'}
+];
 
 // Modal para exibir as tarefas
 function showTasks(unitId) {
+  console.log('init show Tasks')
   const modalTaskDetails = document.getElementById("modal-task-details");
   modalTaskDetails.innerHTML = "";
 
-  if (taskDetails[unitId] && taskDetails[unitId].length > 0) {
-    taskDetails[unitId].forEach((task, index) => {
+  console.log(modalTaskDetails);
+  
+
+  if (taskDetails[unitId]) {
+    console.log('running unitId ', unitId);
+    
+    taskDetails.forEach((task, index) => {
+      console.log(task)
       modalTaskDetails.innerHTML += `
         <h4>Tarefa ${index + 1}</h4>
         <strong>Título:</strong> ${task.title}<br>
@@ -163,8 +175,10 @@ function showTasks(unitId) {
   } else {
     modalTaskDetails.innerHTML = "<p>Nenhuma tarefa cadastrada.</p>";
   }
-
+  console.log(modalTaskDetails);
+  
   document.getElementById("modal").classList.remove("hide");
+  console.log('exit show Tasks')
 }
 
 // Fechar o modal
